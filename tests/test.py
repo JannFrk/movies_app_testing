@@ -3,6 +3,8 @@ import driver
 from selenium.webdriver.common.by import By
 from pages import page
 
+a = 2
+cTc = 0
 
 class test(unittest.TestCase):
     driver = None
@@ -24,6 +26,10 @@ class test(unittest.TestCase):
         self.assertEqual(self.home.get_text(self.home.count_homes), "1")
         self.home.remove_homes()
         self.driver.quit()
+    
+    def test_verificar_cantidad_cart(self):
+        self.home.add_random_home()
+        self.assertEqual(self.home.get_text(self.home.count_homes), cTc)
 
     def test_2_best_home(self):
         self.home.add_random_home()
